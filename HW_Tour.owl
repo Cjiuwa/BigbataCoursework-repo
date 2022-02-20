@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#"
+     xml:base="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcterm="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:">
+    <owl:Ontology rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl">
+        <owl:versionIRI rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl/1.0.0"/>
+        <rdfs:label xml:lang="en">Wattstour</rdfs:label>
+        <owl:versionInfo xml:lang="en">1.0.0</owl:versionInfo>
+        <dcterm:creator xml:lang="en">Clarence Onyejiuwa</dcterm:creator>
+        <dcterm:description xml:lang="en">a small ontology representing the needs of WattTours</dcterm:description>
+        <dcterm:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#sameAs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs"/>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:creator -->
+
+    <owl:AnnotationProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:creator"/>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:description -->
+
+    <owl:AnnotationProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:description"/>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:license -->
+
+    <owl:AnnotationProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#dcterm:license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#hasCapital -->
+
+    <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#hasCapital">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#isCapitalof"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <rdfs:comment xml:lang="en">a state has a municipality holding primary status in it. (Capital)</rdfs:comment>
+        <rdfs:label xml:lang="en">hasCapital</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#isCapitalof -->
+
+    <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#isCapitalof">
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:label xml:lang="en">isCapitalof</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#nothinghappens -->
+
+    <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#nothinghappens">
+        <owl:inverseOf rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <owl:propertyDisjointWith rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited"/>
+        <rdfs:comment xml:lang="en">when a tour is nothing is happening</rdfs:comment>
+        <rdfs:label xml:lang="en">refrain</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited -->
+
+    <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:comment xml:lang="en">journey to and spents some time in a splace</rdfs:comment>
+        <rdfs:label xml:lang="en">visited</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#numberofDays -->
+
+    <owl:DatatypeProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#numberofDays">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment xml:lang="en">refers to the time spent on the tour in days</rdfs:comment>
+        <rdfs:label xml:lang="en">numberofDays</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#numberofStates -->
+
+    <owl:DatatypeProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#numberofStates">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment xml:lang="en">refers to the number of states visited on the tour</rdfs:comment>
+        <rdfs:label xml:lang="en">numberofStates</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals -->
+
+    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals">
+        <owl:disjointWith rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:comment xml:lang="en">A capital or capital city is the municipality holding primary status in a country or state</rdfs:comment>
+        <rdfs:label xml:lang="en">Capital</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName -->
+
+    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName">
+        <rdfs:comment xml:lang="en">an administrative region within a country that is created for the purposes of managing of land and the affairs of people
+to administratively divide territories</rdfs:comment>
+        <rdfs:label xml:lang="en">StatesName</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour -->
+
+    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour">
+        <rdfs:comment xml:lang="en">A journey for pleasure in which several different places are visited</rdfs:comment>
+        <rdfs:label xml:lang="en">Tour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1023703 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q1023703">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1024647 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q1024647">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q182984 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q182984">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q183298 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q183298">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Ibadan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q320704 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q320704">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q3787 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q3787">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q503936 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q503936">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q682571 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q682571">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q682704 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q682704">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q739676 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q739676">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q811144 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q811144">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q844091 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q844091">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q8673 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q8673">
+        <owl:sameAs rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyage -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyage">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos"/>
+        <numberofDays rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</numberofDays>
+        <numberofStates rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</numberofStates>
+        <rdfs:comment xml:lang="en">A tour in Nigeria that takes two days from start to finish, Vistiing two different states in the nation</rdfs:comment>
+        <rdfs:label xml:lang="en">Dankeawon_ Voyage</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyager -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyager">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo"/>
+        <visited rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT"/>
+        <numberofDays rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</numberofDays>
+        <numberofStates rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</numberofStates>
+        <rdfs:comment xml:lang="en">A tour in Nigeria that takes three days from start to finish, Vistiing Four different states in the nation</rdfs:comment>
+        <rdfs:label xml:lang="en">Dankeawon_Voyager</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Ibadan -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Ibadan">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo"/>
+        <rdfs:comment xml:lang="en">Ibadan is the capital and most populous city of Oyo State, in Nigeria. It is the third-largest city by population in Nigeria after Lagos and Kano</rdfs:comment>
+        <rdfs:label xml:lang="en">Ibadan</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Nigeria -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Nigeria">
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Ibadan"/>
+        <rdfs:comment xml:lang="en">Oyo</rdfs:comment>
+        <rdfs:comment xml:lang="en">Oyo, usually referred to as Oyo State to distinguish it from the city of Oyo, is an inland state in southwestern Nigeria</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano -->
+
+    <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
+        <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:label xml:lang="en">WattTour</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#owl:Thing">
+        <rdfs:label xml:lang="en">Things</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.wikidata.org/wiki/Q3787"/>
+            <rdf:Description rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyage"/>
+            <rdf:Description rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Dankeawon__Voyager"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
