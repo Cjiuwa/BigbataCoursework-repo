@@ -69,7 +69,7 @@
     <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#hasCapital">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#isCapitalof"/>
-        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <rdfs:comment xml:lang="en">a state has a municipality holding primary status in it. (Capital)</rdfs:comment>
         <rdfs:label xml:lang="en">hasCapital</rdfs:label>
@@ -81,7 +81,8 @@
 
     <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#isCapitalof">
         <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
-        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
+        <rdfs:comment xml:lang="en">this implies A capital or capital city is the municipality holding primary status in a country or state</rdfs:comment>
         <rdfs:label xml:lang="en">isCapitalof</rdfs:label>
     </owl:ObjectProperty>
     
@@ -91,10 +92,10 @@
 
     <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#nothinghappens">
         <owl:inverseOf rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited"/>
-        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
         <owl:propertyDisjointWith rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited"/>
-        <rdfs:comment xml:lang="en">when a tour is nothing is happening</rdfs:comment>
+        <rdfs:comment xml:lang="en">this implies when no travle is made</rdfs:comment>
         <rdfs:label xml:lang="en">refrain</rdfs:label>
     </owl:ObjectProperty>
     
@@ -105,7 +106,7 @@
     <owl:ObjectProperty rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour"/>
-        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdfs:range rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <rdfs:comment xml:lang="en">journey to and spents some time in a splace</rdfs:comment>
         <rdfs:label xml:lang="en">visited</rdfs:label>
     </owl:ObjectProperty>
@@ -158,22 +159,40 @@
     
 
 
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:label xml:lang="en">WattTour</rdfs:label>
+    </rdf:Description>
+    
+
+
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals -->
 
     <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals">
-        <owl:disjointWith rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <owl:disjointWith rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <rdfs:comment xml:lang="en">A capital or capital city is the municipality holding primary status in a country or state</rdfs:comment>
         <rdfs:label xml:lang="en">Capital</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName -->
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Country -->
 
-    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName">
+    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Country">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A country is a distinct territorial body in a geographical location</rdfs:comment>
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State -->
+
+    <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State">
         <rdfs:comment xml:lang="en">an administrative region within a country that is created for the purposes of managing of land and the affairs of people
 to administratively divide territories</rdfs:comment>
-        <rdfs:label xml:lang="en">StatesName</rdfs:label>
+        <rdfs:label xml:lang="en">State</rdfs:label>
     </owl:Class>
     
 
@@ -181,6 +200,12 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour -->
 
     <owl:Class rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Tour">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#visited"/>
+                <owl:someValuesFrom rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Country"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:comment xml:lang="en">A journey for pleasure in which several different places are visited</rdfs:comment>
         <rdfs:label xml:lang="en">Tour</rdfs:label>
     </owl:Class>
@@ -307,6 +332,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT"/>
+        <rdfs:comment xml:lang="en">Federal Capital Territory (FCT), ; also known as Abuja Federal Capital Territory, administrative territory, central Nigeria, created in 1976.</rdfs:comment>
+        <rdfs:label xml:lang="en">Abuja</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -314,8 +341,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi">
-        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi"/>
+        <rdfs:comment xml:lang="en">Bauchi State is a state in the North-East geopolitical zone of Nigeria,</rdfs:comment>
+        <rdfs:label xml:lang="en">Bauchi</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -325,6 +354,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo"/>
+        <rdfs:comment xml:lang="en">Benin City is the capital of Edo State, southern Nigeria</rdfs:comment>
+        <rdfs:label xml:lang="en">Benin City</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -334,6 +365,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver"/>
+        <rdfs:comment xml:lang="en">Calabar is a port city in southern Nigeria, near the Cameroon border.</rdfs:comment>
+        <rdfs:label xml:lang="en">calabar</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -341,7 +374,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#CrossRiver">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Calabar"/>
+        <rdfs:comment xml:lang="en">Cross River State is a state in the South-South geopolitical zone of Nigeria.</rdfs:comment>
+        <rdfs:label xml:lang="en">Cross River</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -379,7 +415,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Edo">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#BeninCity"/>
+        <rdfs:comment xml:lang="en">Edo State is one of the 36 states of Nigeria, located in the southern region of the country.</rdfs:comment>
+        <rdfs:label xml:lang="en">Edo</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -387,7 +426,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#FCT">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja"/>
+        <rdfs:comment xml:lang="en">The Federal Capital Territory, commonly known as FCT, is a federal territory in central Nigeria</rdfs:comment>
+        <rdfs:label xml:lang="en">FCT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -406,7 +448,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano"/>
+        <rdfs:comment xml:lang="en">Kano State is one of the 36 states of Nigeria, located in the northern region of the country.</rdfs:comment>
+        <rdfs:label xml:lang="en">Kano</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -414,7 +459,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja"/>
+        <rdfs:comment xml:lang="en">Lagos, Nigeria’s largest city, sprawls inland from the Gulf of Guinea across Lagos Lagoon</rdfs:comment>
+        <rdfs:label xml:lang="en">Lagos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -422,7 +470,10 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Nigeria -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Nigeria">
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Country"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Abuja"/>
+        <rdfs:comment xml:lang="en">Nigeria, an African country on the Gulf of Guinea, has many natural landmarks and wildlife reserves</rdfs:comment>
+        <rdfs:label xml:lang="en">Nigeria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -430,7 +481,7 @@ to administratively divide territories</rdfs:comment>
     <!-- https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo -->
 
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Oyo">
-        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#StateName"/>
+        <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#State"/>
         <hasCapital rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Ibadan"/>
         <rdfs:comment xml:lang="en">Oyo</rdfs:comment>
         <rdfs:comment xml:lang="en">Oyo, usually referred to as Oyo State to distinguish it from the city of Oyo, is an inland state in southwestern Nigeria</rdfs:comment>
@@ -443,6 +494,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#bauchi">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Bauchi"/>
+        <rdfs:comment xml:lang="en">bauchi is a city in northeast Nigeria, the capital of Bauchi State,</rdfs:comment>
+        <rdfs:label xml:lang="en">bauchi</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -452,6 +505,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#ikeja">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Lagos"/>
+        <rdfs:comment xml:lang="en">Ikeja is the capital of Lagos State in southwestern Nigeria</rdfs:comment>
+        <rdfs:label xml:lang="en">ikeja</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -461,6 +516,8 @@ to administratively divide territories</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#kano">
         <rdf:type rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Capitals"/>
         <isCapitalof rdf:resource="https://www2.macs.hw.ac.uk/~coo2001/HW_Tour.owl#Kano"/>
+        <rdfs:comment xml:lang="en">Kano (Ajami: كانو) is a city in northern Nigeria and the capital of Kano State</rdfs:comment>
+        <rdfs:label xml:lang="en">kano</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -473,9 +530,6 @@ to administratively divide territories</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
-        <rdfs:label xml:lang="en">WattTour</rdfs:label>
-    </rdf:Description>
     <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#owl:Thing">
         <rdfs:label xml:lang="en">Things</rdfs:label>
     </rdf:Description>
